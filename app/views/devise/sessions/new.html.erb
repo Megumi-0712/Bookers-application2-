@@ -1,3 +1,20 @@
+<div class="container">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,8 +36,16 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <input type="submit" name="commit" value="Log in" class="btn btn-primary" date-disable-with="Log in">
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">CopyRight Infratop.inc</div>
+</div
+
+</div>
