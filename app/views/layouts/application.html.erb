@@ -16,10 +16,14 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-link"></span> About</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><%= link_to root_path, class:"my-bt" do %>
+        <i class="glyphicon glyphicon-home"></i>　Home</li><% end %>
+      <li><%= link_to home_about_path, class:"my-bt" do %>
+          <i class="glyphicon glyphicon-link"></i>　About</li><% end %>
+      <li><%= link_to new_user_session_path, class:"my-bt" do %>
+        <i class="glyphicon glyphicon-user"></i>　Sign in</li><% end %>
+      <li><%= link_to new_user_registration_path, class:"my-bt" do %>
+        <i class="glyphicon glyphicon-log-in"></i>　Log in</li><% end %>
     </ul>
   </div>
 </nav>

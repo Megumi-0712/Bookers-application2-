@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "top#index"
-  get 'about' => 'session#index'
+  get "home/about" => "top#about"
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :books
