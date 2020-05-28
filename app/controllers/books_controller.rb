@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-	bofore_action :authenticate_user!,only: [:new,:edit]
+	before_action :authenticate_user!,only: [:new,:edit]
 
 	def new
 		@book = Book.new
@@ -15,23 +15,19 @@ class BooksController < ApplicationController
   	else
        flash.now[:error]
   		render :index
-  end
-
-  def index
-    	@books = Book.all
-    	@books = Book.new(book_params)
+    end
   end
 
   def show
     @books = Book.all
   	@book = Book.find(params[:id])
-    @book = Book.new(book_params)
+    @book = Book.new
   end
 
   def destroy
       book = Book.find(params[:id])
   	  book.destroy
-      redirect_to books_path
+      redirect_to book_path
   end
 
     private

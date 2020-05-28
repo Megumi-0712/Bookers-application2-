@@ -15,15 +15,26 @@
       <span class="header_title">Bookers</span>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to root_path, class:"my-bt" do %>
-        <i class="glyphicon glyphicon-home"></i>　Home</li><% end %>
-      <li><%= link_to home_about_path, class:"my-bt" do %>
-          <i class="glyphicon glyphicon-link"></i>　About</li><% end %>
-      <li><%= link_to new_user_session_path, class:"my-bt" do %>
-        <i class="glyphicon glyphicon-user"></i>　Sign in</li><% end %>
-      <li><%= link_to new_user_registration_path, class:"my-bt" do %>
-        <i class="glyphicon glyphicon-log-in"></i>　Log in</li><% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to user_path("user.id"), class:"my-bt" do %>
+              <i class="glyphicon glyphicon-home"></i>　Home</li><% end %>
+            <li><%= link_to users_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-user"></i>　Users</li><% end %>
+            <li><%= link_to books_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-book"></i>　Books</li><% end %>
+            <li><%= link_to destroy_user_session_path,method: :delete, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-log-out"></i>　Logout</li><% end %>
+          <% else %>
+            <li><%= link_to root_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-home"></i>　Home</li><% end %>
+            <li><%= link_to home_about_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-link"></i>　About</li><% end %>
+            <li><%= link_to new_user_session_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-user"></i>　Sign in</li><% end %>
+            <li><%= link_to new_user_registration_path, class:"my-bt" do %>
+              <i class="glyphicon glyphicon-log-in"></i>　Log in</li><% end %>
+        <% end %>
     </ul>
   </div>
 </nav>
