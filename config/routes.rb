@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   root to: "top#index"
   get "home/about" => "top#about"
   devise_for :users

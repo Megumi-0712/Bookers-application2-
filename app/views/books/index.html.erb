@@ -1,1 +1,42 @@
-投稿した本の感想のサイトだよー
+<h2>User info</h2>
+
+<div class="container-fluid">
+	<div class="row content">
+		<div class="col-sm-3 sidenav">
+			<h2>User info</h2>
+			<%= form_for(@user) do |f| %>
+			<%= attachment_image_tag @ser, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+				<p>name</p>
+				<p>introduction</p>
+				<%= link_to edit_user_path, class: "btn btn-default btn-block" do %>
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				<% end %>
+
+			<h2>New book</h2>
+
+				<%= form_for(@book,"/books/#{book.id}") do |f| %>
+
+				<% if @book.errors.any? %>
+					<p>error</p>
+					<% @book.errors.full_messages.each do |message| %>
+					<%= message %>
+					<% end %>
+				<% end %>
+
+				<h4>title</h4>
+				<%= f.text_field :title %>
+
+				<h4>opinion</h4>
+				<%= f.text_area :body %>
+
+				<br><%= f.submit 'create Book' %>
+			<% end %>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">CopyRight Infratop.inc</div>
+		</div>
+	</div>
+</div>
